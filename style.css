@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/snow.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+.game-container {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.title {
+    color: #ff6347;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tile {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: #e6e6e6;
+    color: #555;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.tile-2 { background-color: #ffebcd; color: #d2691e; }
+.tile-4 { background-color: #ffd700; color: #8b4513; }
+.tile-8 { background-color: #ff6347; color: #fff; }
+.tile-16 { background-color: #ff4500; color: #fff; }
+.tile-32 { background-color: #ff1493; color: #fff; }
+.tile-64 { background-color: #ba55d3; color: #fff; }
+.tile-128 { background-color: #32cd32; color: #fff; }
+.tile-256 { background-color: #4682b4; color: #fff; }
+.tile-512 { background-color: #1e90ff; color: #fff; }
+.tile-1024 { background-color: #800080; color: #fff; }
+.tile-2048 { background-color: #ff1493; color: #fff; }
+
+.game-info {
+    margin-top: 20px;
+}
+
+#score {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+/* 游戏面板内的数字抖动动画 */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* 平滑移动动画 */
+@keyframes moveTile {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.tile {
+    animation-duration: 0.3s; /* 设置动画持续时间 */
+    animation-timing-function: ease-in-out;
+}
+
+.tile-merged {
+    animation: shake 0.2s ease-in-out;
+}
+
+.tile-moving {
+    animation: moveTile 0.3s ease-in-out;
+}
